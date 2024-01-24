@@ -53,14 +53,21 @@ footer {
   height: 30px;
   width: 200px;
 }
-.input-city {
+#email {
   border: none;
   border-radius: 10px;
   margin-top: 20px;
   height: 30px;
   width: 200px;
 }
-.input-age {
+#city {
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 30px;
+  width: 200px;
+}
+#age {
   border: none;
   border-radius: 10px;
   margin-top: 20px;
