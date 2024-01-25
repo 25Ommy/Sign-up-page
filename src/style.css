@@ -90,3 +90,8 @@ button:hover {
   color: #555151;
   cursor: pointer;
 }
+h2 {
+  text-align: center;
+
+  color: #424243;
+}

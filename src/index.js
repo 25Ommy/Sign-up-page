@@ -1,18 +1,47 @@
-let formInput = document.querySelector("#form");
+let button = document.querySelector("button");
 
-formInput.addEventListener("submit", (event) => {
+let form = document.querySelector("#form");
+let nameInput = document.querySelector("#name");
+let surnameInput = document.querySelector("#surname");
+let emailInput = document.querySelector("#email");
+let ageInput = document.querySelector("#age");
+let cityInput = document.querySelector("#city");
+
+let outputUsernames = (event) => {
   event.preventDefault();
-  let formData = new FormData(form);
-  let data = Object.fromEntries(formData);
+  button.innerText = "Loading...";
+  let name = nameInput.value;
+  let surname = surnameInput.value;
+  let email = emailInput.value;
+  let age = ageInput.value;
+  let city = cityInput.value;
 
-  fetch("https://jsonplaceholder.typicode.com/users", {
+  let PersonAsAnObject = {
+    name,
+    surname,
+    email,
+    age,
+    city,
+  };
+  let replace = document.querySelector("h2");
+
+  replace.style.width = "200px";
+  replace.style.wordWrap = "break-word";
+  replace.style.alignSelf = "center";
+  replace.style.textAlign = "center";
+
+  console.log("PersonAsAnObject==>", PersonAsAnObject);
+
+  let PersonAsAJsonString = JSON.stringify(PersonAsAnObject);
+
+  fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",
-
-    headers: { "Content-type": "application/json" },
-    body: JSON.stringify(data),
+    body: PersonAsAJsonString,
+    Headers: { "Content-type": "application/json" },
   })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((res) => res.json())
+    .then((json) => (replace.innerText = PersonAsAJsonString))
     .catch((error) => console.log(error))
-    .finally(() => (button.innerText = "Sign-up"));
-});
+    .finally(() => (button.innerText = "Sign-in"));
+};
+form.addEventListener("submit", outputUsernames);
