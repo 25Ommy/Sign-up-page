@@ -6,7 +6,12 @@ body {
   border: 2px solid rgb(105, 103, 103);
   border-radius: 20px;
   margin-left: 390px;
-  background-image: url("wallpaper1.jpeg");
+  background: linear-gradient(
+    90deg,
+    rgba(112, 101, 97, 1) 0%,
+    rgba(190, 155, 125, 1) 60%,
+    rgba(170, 158, 164, 1) 100%
+  );
   font-family: "Handlee", cursive;
   font-family: "Montserrat", sans-serif;
 }
